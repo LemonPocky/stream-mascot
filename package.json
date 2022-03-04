@@ -1,0 +1,25 @@
+{
+  "name": "stream-mascot-server",
+  "version": "1.0.0",
+  "description": "NodeJS webserver that captures events from Twitch EventSub and sends them to Stream Mascot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LemonPocky/stream-mascot-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LemonPocky/stream-mascot-server/issues"
+  },
+  "homepage": "https://github.com/LemonPocky/stream-mascot-server#readme",
+  "dependencies": {
+    "@twurple/api": "^5.0.18",
+    "@twurple/eventsub": "^5.0.18",
+    "@twurple/eventsub-ngrok": "^5.0.18",
+    "dotenv": "^16.0.0"
+  }
+}
