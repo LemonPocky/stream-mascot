@@ -40,7 +40,7 @@ module.exports = class TwitchApiClient {
       await this.listener.listen();
       this.isListening = true;
       await this.subscribeToEvents();
-      console.log('Listener is listening.');
+      console.log('Twitch EventSub listener is listening.');
     } catch (error) {
       console.log('Error subscribing to events: ' + error);
       // Clear all currently active subscriptions
@@ -66,6 +66,14 @@ module.exports = class TwitchApiClient {
         this._broadcasterId,
         this.onChannelFollow
       );
+
+    // Triggers when the broadcaster gets raided
+    console.log('Subscribing to Channel Raid To...');
+    this.activeSubscriptions['raidToSubscription'] =
+      await this.listener.subscribeToChannelRaidEventsTo(
+        this._broadcasterId,
+        this.onChannelRaidTo
+      );
   }
 
   onChannelUpdate(event) {
@@ -75,6 +83,12 @@ module.exports = class TwitchApiClient {
   onChannelFollow(event) {
     console.log(
       `${event.userDisplayName} just followed ${event.broadcasterDisplayName}!`
+    );
+  }
+
+  onChannelRaidTo(event) {
+    console.log(
+      `${event.raidingBroadcasterDisplayName} just raided ${event.raidedBroadcasterDisplayName} with ${event.viewers} viewers!`
     );
   }
 

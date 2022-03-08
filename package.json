@@ -21,6 +21,7 @@
     "@twurple/eventsub": "^5.0.18",
     "@twurple/eventsub-ngrok": "^5.0.18",
     "dotenv": "^16.0.0",
+    "inquirer": "^8.2.0",
     "ws": "^8.5.0"
   }
 }
